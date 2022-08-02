@@ -1,9 +1,11 @@
 const calculate = document.querySelector("#calculate");
-const inputWeight = document.querySelector("#weight");
-const inputStature = document.querySelector("#stature");
-const imcResult = document.querySelector("#result");
 
-function handleButtonClick() {
+calculate.addEventListener("submit", handleButtonClick);
+
+function handleButtonClick(e) {
+  const inputWeight = document.querySelector("#weight");
+  const inputStature = document.querySelector("#stature");
+  const imcResult = document.querySelector("#result");
   const p = paragraphElement();
   const weight = Number(inputWeight.value);
   const stature = Number(inputStature.value);
@@ -13,16 +15,8 @@ function handleButtonClick() {
   imcResult.innerHTML = "";
   imcResult.appendChild(p);
 
-  if (weight === NaN || weight <= 0) {
-    return (p.innerHTML = "Preencha todos os campos.");
-  }
-  if (stature === NaN || stature <= 0) {
-    return (p.innerHTML = "Preencha todos os campos.");
-  }
-  p.innerHTML = `Seu imc é <strong>${imc.replace(
-    ".",
-    ", "
-  )}</strong> classificado como <strong>${levelImc}</strong> `;
+  p.innerHTML = `Seu imc é <strong>${imc}</strong> classificado como <strong>${levelImc}</strong> `;
+  e.preventDefault();
 }
 
 function calculateImc(weight, stature) {
@@ -55,10 +49,3 @@ function paragraphElement() {
   const p = document.createElement("p");
   return p;
 }
-
-document.addEventListener("keypress", function (e) {
-  console.log;
-  if (e.code === "Enter") {
-    handleButtonClick();
-  }
-});

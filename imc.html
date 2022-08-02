@@ -9,15 +9,19 @@
   </head>
   <body>
     <h1>Calcule o IMC</h1>
+
     <div class="imc-box">
-      <label for="weight">Peso em (kg)</label>
-      <input type="text" id="weight" placeholder="Peso" />
-      <label for="stature">Altura em (m)</label>
-      <input type="text" id="stature" placeholder="Altura" />
-      <button onclick="handleButtonClick()" id="calculate">Calcular</button>
+      <form action="" id="calculate">
+        <label for="weight">Peso em (kg)</label>
+        <input type="text" id="weight" placeholder="Peso" required />
+        <label for="stature">Altura em (m)</label>
+        <input type="text" id="stature" placeholder="Altura" required />
+        <button>Calcular</button>
+      </form>
     </div>
 
     <div id="result"></div>
+
     <script src="calc.js"></script>
   </body>
 </html>
